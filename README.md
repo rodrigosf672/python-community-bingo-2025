@@ -43,12 +43,6 @@ To run it on your machine:
 
 ## Contributing
 
-We welcome contributions! If you have ideas for new bingo squares, improvements to the code, or just want to fix a typo, please feel free to contribute.
-
-Thank you for being part of the Python community. Here is to another wonderful year of coding and collaboration!
-
-## Contributing
-
 Contributions are very welcome. Whether you’d like to suggest new bingo squares for future years, improve the code, adjust the wording, or fix a small typo, feel free to jump in.
 
 ## Personal Note
@@ -59,4 +53,4 @@ I hope it brings a smile to your face and helps you reflect on the memories and 
 
 In particular, I’d love ideas or contributions that help make this project or future versions/iterations more encouraging and effective in supporting donations to the PSF.
 
-Thank you for being part of this community, and here’s to another year of learning and building together.
+Thank you for being part of this community, and here’s to another year of learning and building together! :)
