@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Year Holidays Python Community Bingo</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-['Outfit'] min-h-screen flex flex-col items-center py-8 px-4">
+    <div id="celebration-banner"
+        class="hidden fixed top-0 left-0 w-full bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-slate-900 text-center py-4 z-50 shadow-lg transform transition-transform duration-500">
+        <h2 class="text-3xl font-bold uppercase tracking-widest">Bingo Achieved! 🎉</h2>
+    </div>
+
+    <main class="w-full max-w-2xl flex flex-col gap-6 relative" id="capture-area">
+        <header class="text-center space-y-2">
+            <h1
+                class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-yellow-300 drop-shadow-sm pb-2">
+                Python Community Bingo
+            </h1>
+            <p class="text-slate-400 text-lg">End of Year Holidays Edition</p>
+        </header>
+
+        <div id="intro-section" class="bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 backdrop-blur-sm">
+            <h3 id="intro-title" class="text-xl font-bold text-yellow-400 mb-2">Welcome!</h3>
+            <p id="intro-body" class="text-slate-300 leading-relaxed">
+                Loading community message...
+            </p>
+        </div>
+
+        <div id="bingo-grid"
+            class="grid grid-cols-5 gap-2 md:gap-3 p-4 bg-slate-800 rounded-2xl shadow-2xl border border-slate-700">
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mt-4" data-html2canvas-ignore>
+            <button id="reset-btn"
+                class="px-6 py-2 rounded-full font-semibold bg-slate-700 hover:bg-slate-600 text-white transition-colors border border-slate-600">
+                Reset Board
+            </button>
+            <button id="share-btn"
+                class="px-6 py-2 rounded-full font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-lg shadow-blue-900/20">
+                Share
+            </button>
+            <a id="donate-link" href="https://donate.python.org/" target="_blank"
+                class="inline-block px-6 py-2 rounded-full font-semibold bg-yellow-500 hover:bg-yellow-400 text-slate-900 transition-colors shadow-lg shadow-yellow-900/20 no-underline">
+                Support the PSF
+            </a>
+        </div>
+
+        <footer class="mt-8 text-center text-slate-500 text-sm mb-8" data-html2canvas-ignore>
+            <p class="mb-4">Built with <span class="text-red-500">♥</span> and PyScript</p>
+
+            <div class="flex flex-col items-center gap-2 text-xs opacity-60">
+                <p>Not affiliated with the PSF. For issues/contributions, please check repo. </p>
+                <a href="https://github.com/rodrigosf672/python-community-bingo-2025" target="_blank"
+                    class="flex items-center gap-1.5 hover:text-slate-300 transition-colors"
+                    title="Contribute or report issues">
+                    <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <div id="social-share-overlay"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div
+            class="bg-slate-800 p-8 rounded-2xl max-w-md w-full border border-slate-700 shadow-2xl relative transform transition-all scale-100">
+            <button id="close-modal"
+                class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">&times;</button>
+            <h3 class="text-2xl font-bold text-white mb-4">Share Your Bingo Card</h3>
+            <p class="text-slate-300 mb-6" id="share-message-preview">
+                Share about the Python Community Bingo to encourage end-of-year donations to PSF!
+            </p>
+            <div class="flex flex-col gap-4">
+                <div class="relative group">
+                    <label
+                        class="block text-xs text-slate-400 mb-1 ml-1 uppercase font-bold tracking-wider">Message</label>
+                    <textarea id="share-text-area" readonly
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-slate-300 text-sm h-40 pr-12 focus:outline-none focus:border-blue-500 font-mono resize-none"></textarea>
+                    <button id="modal-copy-btn"
+                        class="absolute top-7 right-2 p-2 text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-md transition-all shadow-md active:scale-95"
+                        title="Copy to clipboard">
+                        📋
+                    </button>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <button id="modal-download-btn"
+                        class="w-full py-3 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-bold transition-colors flex items-center justify-center gap-2 border border-slate-600 hover:border-slate-500">
+                        Download Bingo Card
+                    </button>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <a id="share-twitter" href="#" target="_blank"
+                            class="py-3 bg-black hover:bg-zinc-800 rounded-lg text-white text-center font-bold flex items-center justify-center gap-2">
+                            𝕏
+                        </a>
+                        <a id="share-linkedin" href="#" target="_blank"
+                            class="py-3 bg-blue-700 hover:bg-blue-600 rounded-lg text-white text-center font-bold flex items-center justify-center gap-2">
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="py" src="./main.py" config='{"packages": []}'></script>
+</body>
+
+</html>
