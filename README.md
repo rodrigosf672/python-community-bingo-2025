@@ -2,12 +2,15 @@
 
 Welcome to the Python Community Bingo!
 
-This project is a small, heart-warming initiative designed to celebrate the incredible experiences we share within the Python community. As we approach the end of the year, it is a perfect time to reflect on the events, the learning, and the friendships that make this ecosystem so special.
-
 [![PyScript](https://img.shields.io/badge/PyScript-2024.1.1-3776AB?logo=python&logoColor=white)](https://pyscript.net/)
 [![Python](https://img.shields.io/badge/Python-3.9.21-306998?logo=python&logoColor=white)](https://www.python.org/)
 [![Community](https://img.shields.io/badge/Built%20for-Python%20Community-brightgreen)](https://www.python.org/community/)
 [![Support PSF](https://img.shields.io/badge/Support-Python%20Software%20Foundation-yellow)](https://donate.python.org/)
+
+This project is a small, heart-warming initiative designed to celebrate the incredible experiences we share within the Python community. As we approach the end of the year, it is a perfect time to reflect on the events, the learning, and the friendships that make this ecosystem so special.
+
+<img width="433" height="473" alt="image" src="https://github.com/user-attachments/assets/21edaf67-9c34-4982-9156-4918e560e505" />
+
 
 ## Goal
 
